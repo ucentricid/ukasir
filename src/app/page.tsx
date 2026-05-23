@@ -11,7 +11,7 @@ export default function UkasirPage() {
   return (
     <div className="flex flex-col">
       {/* SECTION 1 — HERO */}
-      <section className="relative overflow-hidden ukasir-mesh-gradient pt-32 pb-24 sm:pt-48 sm:pb-32 lg:pb-40">
+      <section className="relative overflow-hidden ukasir-mesh-gradient pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pb-40">
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 gap-x-12 gap-y-16 lg:grid-cols-2 lg:items-center">
@@ -20,19 +20,21 @@ export default function UkasirPage() {
                 <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
                 Tersedia untuk Android & iOS
               </div>
-              <h1 className="text-5xl font-extrabold tracking-tight text-gray-900 sm:text-7xl font-red-hat-display leading-[1.1]">
+              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl font-red-hat-display leading-[1.1]">
                 Kasir <span className="text-blue-600">Offline</span>.<br/>
                 Sekali Beli.<br/>
                 <span className="ukasir-text-gradient">Selamanya.</span>
               </h1>
-              <p className="mt-8 text-xl leading-8 text-gray-600 max-w-lg">
+              <p className="mt-6 text-base sm:text-xl leading-7 sm:leading-8 text-gray-600 max-w-lg mx-auto lg:mx-0">
                 Aplikasi kasir POS mobile yang benar-benar bekerja tanpa internet.
                 Tidak ada tagihan bulanan. Tidak ada biaya tersembunyi.
                 Cocok untuk semua jenis UMKM Indonesia.
               </p>
               
-              <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm border border-gray-100">
-                 <span className="text-xl">💳</span> Hanya <strong className="text-gray-900">Rp 149.000</strong> <span className="line-through text-gray-400 text-xs">/ seumur hidup</span> — 1 device, lifetime
+              <div className="mt-5 flex justify-center lg:justify-start">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm border border-gray-100">
+                  <span className="text-lg">💳</span> Hanya <strong className="text-gray-900">Rp 149.000</strong> <span className="text-gray-400 text-xs">— lifetime</span>
+                </div>
               </div>
 
               <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start">
@@ -100,12 +102,12 @@ export default function UkasirPage() {
       <Ticker />
 
       {/* SECTION 2 — PAIN POINTS */}
-      <section className="bg-[#061734] py-24 sm:py-32 relative overflow-hidden">
+      <section className="bg-[#061734] py-16 sm:py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(29,97,230,0.15)_0%,transparent_60%)]"></div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-sm font-bold leading-7 text-blue-400 uppercase tracking-widest mb-3">Masalah Yang Kami Selesaikan</h2>
-            <p className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-red-hat-display">
+            <p className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl font-red-hat-display">
                Kenapa Kasir Manual & Berlangganan Sudah Tidak Relevan?
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-400">
@@ -113,7 +115,7 @@ export default function UkasirPage() {
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: "❌", title: "Pencatatan Manual Rentan Error", desc: "Salah hitung, nota hilang, stok kacau — masalah klasik yang menggerus keuntungan tanpa disadari." },
                 { icon: "💸", title: "Biaya Langganan Menggerus Laba", desc: "Kasir berlangganan Rp 55K–200K/bulan. Dalam setahun itu Rp 660K–2.4 juta yang keluar sia-sia." },
@@ -122,16 +124,16 @@ export default function UkasirPage() {
                 { icon: "📉", title: "Tidak Ada Laporan Real-Time", desc: "Pemilik usaha tidak tahu laba/rugi, stok kritis, atau performa kasir — semua di kepala saja." },
                 { icon: "🔓", title: "Keamanan Data Diragukan", desc: "Data di cloud pihak ketiga berarti ketergantungan layanan. Kalau provider tutup, data ikut hilang." }
               ].map((p, i) => (
-                <div key={i} className="flex flex-col p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-blue-600/10 hover:border-blue-500/30 transition-all hover:-translate-y-1">
-                  <div className="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-2xl mb-6">
+                <div key={i} className="flex sm:flex-col flex-row items-start gap-4 sm:gap-0 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 hover:bg-blue-600/10 hover:border-blue-500/30 transition-all hover:-translate-y-1">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-red-500/20 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0 sm:mb-6">
                     {p.icon}
                   </div>
-                  <dt className="text-lg font-bold leading-7 text-white font-red-hat-display mb-3">
-                    {p.title}
-                  </dt>
-                  <dd className="flex flex-auto flex-col text-sm leading-6 text-gray-400">
-                    <p className="flex-auto">{p.desc}</p>
-                  </dd>
+                  <div>
+                    <dt className="text-base sm:text-lg font-bold leading-6 text-white font-red-hat-display mb-1 sm:mb-3">
+                      {p.title}
+                    </dt>
+                    <dd className="text-xs sm:text-sm leading-5 sm:leading-6 text-gray-400">{p.desc}</dd>
+                  </div>
                 </div>
               ))}
             </dl>
@@ -140,9 +142,9 @@ export default function UkasirPage() {
       </section>
 
       {/* SECTION 3 — FEATURES (BENTO GRID + LIST) */}
-      <section className="bg-gray-50 py-24 sm:py-32" id="fitur">
+      <section className="bg-gray-50 py-16 sm:py-24 lg:py-32" id="fitur">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
+          <div className="mx-auto max-w-3xl text-center mb-10 sm:mb-16">
             <h2 className="text-sm font-bold leading-7 text-emerald-600 uppercase tracking-widest mb-3">Fitur Lengkap</h2>
             <p className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl font-red-hat-display">
                Semua Yang Dibutuhkan UMKM,<br/>Dalam Satu Aplikasi
@@ -154,7 +156,7 @@ export default function UkasirPage() {
           
           <div className="ukasir-bento-grid">
             {/* Feature 1: POS Cepat */}
-            <div className="rounded-3xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+            <div className="rounded-2xl sm:rounded-3xl bg-white border border-gray-200 p-5 sm:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
                   <Zap className="h-7 w-7 text-blue-600" />
                 </div>
@@ -164,7 +166,7 @@ export default function UkasirPage() {
             </div>
 
             {/* Feature 2: Laporan Lengkap (Large) */}
-            <div className="md:col-span-2 rounded-3xl bg-blue-600 p-8 sm:p-10 text-white flex flex-col sm:flex-row gap-8 overflow-hidden relative group shadow-xl">
+            <div className="sm:col-span-2 rounded-3xl bg-blue-600 p-8 sm:p-10 text-white flex flex-col sm:flex-row gap-8 overflow-hidden relative group shadow-xl">
                 <div className="relative z-10 flex-1 flex flex-col justify-center">
                     <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6 backdrop-blur-sm">
                       <TrendingUp className="h-7 w-7 text-white" />
@@ -197,7 +199,7 @@ export default function UkasirPage() {
             </div>
 
             {/* Feature 3: Produk */}
-            <div className="rounded-3xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+            <div className="rounded-2xl sm:rounded-3xl bg-white border border-gray-200 p-5 sm:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
                   <Package className="h-7 w-7 text-blue-600" />
                 </div>
@@ -207,7 +209,7 @@ export default function UkasirPage() {
             </div>
 
             {/* Feature 4: Stok Pintar */}
-            <div className="rounded-3xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+            <div className="rounded-2xl sm:rounded-3xl bg-white border border-gray-200 p-5 sm:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
                   <HardDrive className="h-7 w-7 text-blue-600" />
                 </div>
@@ -217,7 +219,7 @@ export default function UkasirPage() {
             </div>
 
             {/* Feature 5: Multi User */}
-            <div className="rounded-3xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+            <div className="rounded-2xl sm:rounded-3xl bg-white border border-gray-200 p-5 sm:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
                   <Users className="h-7 w-7 text-blue-600" />
                 </div>
@@ -228,14 +230,14 @@ export default function UkasirPage() {
           </div>
 
           {/* More Features Grid */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-8 sm:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
              {[
                { icon: <Receipt className="w-6 h-6 text-gray-700"/>, title: "Diskon & Pajak", desc: "Atur diskon nominal/persen, PPN, dan service charge fleksibel." },
                { icon: <Printer className="w-6 h-6 text-gray-700"/>, title: "Printer Thermal", desc: "Koneksi Bluetooth/USB. Cetak struk rapi dari HP." },
                { icon: <RotateCcw className="w-6 h-6 text-gray-700"/>, title: "Refund & Hold", desc: "Proses refund via PIN atau tahan transaksi customer." },
                { icon: <UserSquare className="w-6 h-6 text-gray-700"/>, title: "Data Pelanggan", desc: "Simpan info pelanggan untuk program loyalitas." },
              ].map((f, i) => (
-                <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 flex gap-4 hover:border-blue-300 transition-colors">
+                <div key={i} className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-100 flex gap-3 sm:gap-4 hover:border-blue-300 transition-colors">
                    <div className="mt-1">{f.icon}</div>
                    <div>
                      <h4 className="font-bold text-gray-900 mb-1">{f.title}</h4>
@@ -255,11 +257,11 @@ export default function UkasirPage() {
       </section>
 
       {/* SECTION 4 — HOW IT WORKS */}
-      <section className="bg-white py-24 sm:py-32" id="cara-kerja">
+      <section className="bg-white py-16 sm:py-24 lg:py-32" id="cara-kerja">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-           <div className="mx-auto max-w-3xl text-center mb-16">
+           <div className="mx-auto max-w-3xl text-center mb-10 sm:mb-16">
             <h2 className="text-sm font-bold leading-7 text-blue-600 uppercase tracking-widest mb-3">Cara Kerja</h2>
-            <p className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl font-red-hat-display">
+            <p className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl font-red-hat-display">
                Mulai Berjualan dalam 4 Langkah
             </p>
             <p className="mt-6 text-lg text-gray-600">
@@ -267,24 +269,25 @@ export default function UkasirPage() {
             </p>
           </div>
 
-          <div className="relative mt-20">
-             {/* Connecting Line */}
+          <div className="relative mt-12 sm:mt-20">
+             {/* Connecting Line (Desktop only) */}
              <div className="hidden lg:block absolute top-12 left-24 right-24 h-0.5 bg-gradient-to-r from-blue-100 via-blue-400 to-blue-100"></div>
              
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 xl:gap-12 relative z-10">
                 {[
                   { num: "1", title: "Beli & Dapatkan Token", desc: "Pembayaran sekali. Token aktivasi dikirim ke email & WA dalam hitungan menit." },
                   { num: "2", title: "Download & Aktivasi", desc: "Download uKasir. Masukkan token — aktivasi hanya butuh internet sekali ini saja." },
                   { num: "3", title: "Setup Produk", desc: "Isi nama usaha, tambahkan produk dengan harga dan stok. Selesai dalam 10 menit." },
                   { num: "4", title: "Mulai Jualan!", desc: "Catat transaksi, print struk, pantau laporan — semua full offline di HP." },
                 ].map((step, i) => (
-                  <div key={i} className="flex flex-col items-center text-center">
-                      <div className="w-24 h-24 rounded-full bg-white border-8 border-gray-50 flex items-center justify-center mb-6 shadow-xl shadow-blue-100 relative group">
-                          <div className="absolute inset-0 rounded-full bg-blue-600 scale-0 group-hover:scale-100 transition-transform duration-300 origin-center z-0"></div>
-                          <span className="font-red-hat-display font-black text-4xl text-blue-600 group-hover:text-white relative z-10 transition-colors">{step.num}</span>
+                  <div key={i} className="flex flex-row lg:flex-col items-start lg:items-center text-left lg:text-center gap-4 sm:gap-6 p-5 sm:p-6 lg:p-0 bg-gradient-to-br from-white to-blue-50/10 lg:from-transparent lg:to-transparent rounded-2xl sm:rounded-3xl border border-gray-100 lg:border-none shadow-sm lg:shadow-none relative group transition-all duration-300 hover:border-blue-200 lg:hover:border-transparent">
+                      <div className="flex-shrink-0 w-12 h-12 lg:w-24 lg:h-24 rounded-full bg-blue-600 lg:bg-white text-white lg:text-blue-600 border-4 border-blue-50 lg:border-8 lg:border-gray-50 flex items-center justify-center shadow-lg lg:shadow-xl shadow-blue-100 relative group-hover:scale-105 transition-transform duration-300">
+                          <span className="font-red-hat-display font-black text-xl lg:text-4xl relative z-10">{step.num}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+                      <div className="flex-1">
+                          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-1 lg:mb-3">{step.title}</h3>
+                          <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
+                      </div>
                   </div>
                 ))}
              </div>
@@ -293,13 +296,13 @@ export default function UkasirPage() {
       </section>
 
       {/* SECTION 5 — TARGET SEGMENTS */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-14 sm:py-20">
          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="text-center mb-12">
                <h2 className="text-2xl font-extrabold text-gray-900 font-red-hat-display">Cocok Untuk Semua Jenis Usaha</h2>
                <p className="mt-2 text-gray-600">Satu aplikasi, semua jenis bisnis. Tidak perlu pilih versi khusus.</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
                 {[
                   { icon: <Store className="w-8 h-8 text-orange-500"/>, title: "F&B", desc: "Warung, kafe, kedai" },
                   { icon: <Scissors className="w-8 h-8 text-pink-500"/>, title: "Salon", desc: "Kecantikan, barber" },
@@ -307,8 +310,8 @@ export default function UkasirPage() {
                   { icon: <Wrench className="w-8 h-8 text-slate-600"/>, title: "Bengkel", desc: "Motor, mobil" },
                   { icon: <Shirt className="w-8 h-8 text-cyan-500"/>, title: "Laundry", desc: "Kiloan, premium" },
                 ].map((seg, i) => (
-                  <div key={i} className="bg-white rounded-2xl p-6 text-center border border-gray-100 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                     <div className="w-16 h-16 mx-auto bg-gray-50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors">
+                  <div key={i} className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center border border-gray-100 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all group w-[calc(50%-6px)] sm:w-[calc(33.333%-12px)] lg:w-[calc(20%-16px)] flex-shrink-0 flex flex-col items-center justify-center">
+                     <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-50 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-blue-50 transition-colors">
                         {seg.icon}
                      </div>
                      <h3 className="font-bold text-gray-900 font-red-hat-display mb-1">{seg.title}</h3>
@@ -320,9 +323,9 @@ export default function UkasirPage() {
       </section>
 
       {/* SECTION 6 — PRICING & COMPARISON */}
-      <section className="bg-white py-24 sm:py-32 overflow-hidden relative" id="harga">
+      <section className="bg-white py-16 sm:py-24 lg:py-32 overflow-hidden relative" id="harga">
          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
                <h2 className="text-sm font-bold leading-7 text-blue-600 uppercase tracking-widest mb-3">Harga Transparan</h2>
                <p className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl font-red-hat-display">
                   Satu Harga. Semua Fitur. Selamanya.
@@ -332,7 +335,7 @@ export default function UkasirPage() {
                </p>
             </div>
 
-            <div className="rounded-[3rem] bg-[#061734] px-6 py-12 sm:p-16 lg:p-20 border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-20 lg:items-center">
+            <div className="rounded-2xl sm:rounded-[3rem] bg-[#061734] px-5 py-10 sm:p-16 lg:p-20 border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-20 lg:items-center">
                <div className="relative z-10 lg:w-1/2">
                   <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-4 py-1.5 text-xs font-bold text-blue-300 uppercase tracking-wider mb-8">
                      ⭐ uKasir Basic — Lifetime
@@ -362,7 +365,7 @@ export default function UkasirPage() {
                </div>
                
                <div className="lg:w-1/2 relative z-10">
-                  <ul className="space-y-4">
+                  <ul className="ukasir-feature-list space-y-3 sm:space-y-4">
                      {[
                         "Kasir POS (manual + scan barcode/QR)",
                         "Manajemen produk & varian unlimited",
@@ -376,7 +379,7 @@ export default function UkasirPage() {
                         "Laporan arus kas & laba rugi",
                         "Support WA lifetime"
                      ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-4 text-white/80 text-sm border-b border-white/5 pb-4 last:border-0 last:pb-0">
+                        <li key={i} className="flex items-center gap-3 text-white/80 text-sm border-b border-white/5 pb-3 sm:pb-4 last:border-0 last:pb-0">
                            <div className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</div>
                            {item}
                         </li>
@@ -394,8 +397,10 @@ export default function UkasirPage() {
                    <h3 className="text-2xl font-bold text-gray-900 font-red-hat-display">uKasir vs Kompetitor</h3>
                    <p className="text-gray-500 mt-2">Fakta objektif. Pilih yang terbaik untuk usaha Anda.</p>
                 </div>
-                <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
-                   <div className="overflow-x-auto">
+                {/* Mobile scroll hint */}
+                <p className="sm:hidden text-xs text-gray-400 text-center mb-3">← Geser untuk melihat perbandingan →</p>
+                <div className="ukasir-table-wrap bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
+                   <div className="overflow-x-auto scroll-smooth">
                       <table className="w-full text-left text-sm whitespace-nowrap">
                          <thead>
                             <tr className="bg-[#061734] text-white">
@@ -404,7 +409,7 @@ export default function UkasirPage() {
                                   uKasir
                                   <span className="absolute top-0 right-4 bg-white text-blue-600 text-[10px] font-black px-2 py-0.5 rounded-b-md">★ TERBAIK</span>
                                </th>
-                               <th className="px-6 py-5 font-bold font-red-hat-display text-white/70">Kasmini</th>
+                               <th className="px-6 py-5 font-bold font-red-hat-display text-white/70">Kasir Offline Lain</th>
                                <th className="px-6 py-5 font-bold font-red-hat-display text-white/70">Kasir Langganan</th>
                             </tr>
                          </thead>
@@ -441,21 +446,21 @@ export default function UkasirPage() {
       </section>
 
       {/* SECTION 7 — TESTIMONIALS */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-gray-50 py-16 sm:py-24">
          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
                <h2 className="text-sm font-bold leading-7 text-blue-600 uppercase tracking-widest mb-3">Testimoni</h2>
                <p className="text-3xl font-extrabold tracking-tight text-gray-900 font-red-hat-display">
                   Kata Mereka yang Sudah Pakai uKasir
                </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                {[
                  { name: "Budi Santoso", role: "Pemilik Warung Makan", quote: "Warung makan saya sekarang jauh lebih rapi. Stok tidak lagi sering meleset, dan laporan harian bisa langsung saya lihat sambil istirahat. Harganya sangat worth it!" },
                  { name: "Sari Rahayu", role: "Owner Salon Cantik", quote: "Salon saya ada di area yang sinyalnya sering jelek. Dengan uKasir, transaksi tetap lancar. Kasir karyawan saya juga langsung bisa pakai tanpa bingung." },
                  { name: "Teguh Wibowo", role: "Pemilik Toko Sembako", quote: "Dulu pakai kasir langganan bayar tiap bulan, sekarang bayar sekali sudah bisa seumur hidup. Fiturnya lebih lengkap dan offline. Tidak ada alasan tidak beli!" }
                ].map((testi, i) => (
-                 <div key={i} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+                 <div key={i} className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
                     <div className="flex text-amber-400 mb-6">
                       {[1,2,3,4,5].map(star => <Star key={star} className="w-5 h-5 fill-current" />)}
                     </div>
@@ -476,7 +481,7 @@ export default function UkasirPage() {
       </section>
 
       {/* SECTION 8 — FAQ */}
-      <section className="bg-white py-24 sm:py-32" id="faq">
+      <section className="bg-white py-16 sm:py-24 lg:py-32" id="faq">
          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="text-center mb-8">
                <h2 className="text-sm font-bold leading-7 text-blue-600 uppercase tracking-widest mb-3">FAQ</h2>
@@ -492,7 +497,7 @@ export default function UkasirPage() {
       <section className="bg-[#061734] py-24 sm:py-32 relative overflow-hidden text-center">
          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(29,97,230,0.2)_0%,transparent_55%),radial-gradient(ellipse_at_70%_50%,rgba(29,97,230,0.15)_0%,transparent_55%)] pointer-events-none"></div>
          <div className="mx-auto max-w-3xl px-6 lg:px-8 relative z-10">
-            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white font-red-hat-display mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-red-hat-display mb-5 sm:mb-6">
                Siap Tinggalkan Kasir Manual & Biaya Bulanan?
             </h2>
             <p className="text-lg text-white/60 mb-10 leading-relaxed">
