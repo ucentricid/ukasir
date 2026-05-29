@@ -10,6 +10,8 @@ export default function UkasirNavbar() {
   const pathname = usePathname();
   const router = useRouter();
 
+  if (pathname.startsWith('/admin')) return null;
+
   const navLinks = [
     { name: "Fitur", href: "/#fitur" },
     { name: "Cara Kerja", href: "/#cara-kerja" },
@@ -32,15 +34,15 @@ export default function UkasirNavbar() {
   };
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-7xl ukasir-nav-pill rounded-full px-6 py-3 border border-gray-100 flex items-center justify-between transition-all duration-300">
+    <nav className="fixed top-3 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl ukasir-nav-pill rounded-full px-4 py-1.5 sm:px-6 sm:py-3 border border-gray-100 flex items-center justify-between transition-all duration-300">
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
             <img 
               src="/images/logo.svg" 
               alt="uKasir Logo" 
-              className="h-8 w-auto" 
+              className="h-6 sm:h-8 w-auto" 
             />
           </Link>
         </div>
@@ -79,16 +81,16 @@ export default function UkasirNavbar() {
         <div className="md:hidden flex items-center">
            <button
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center justify-center rounded-full p-2 text-gray-700 hover:bg-gray-100 focus:outline-none transition-colors"
+            className="inline-flex items-center justify-center rounded-full p-1.5 text-gray-700 hover:bg-gray-100 focus:outline-none transition-colors"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-4 right-4 bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 animate-in fade-in zoom-in duration-300">
+        <div className="md:hidden absolute top-[3.5rem] sm:top-20 left-4 right-4 bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 animate-in fade-in zoom-in duration-300">
           <div className="space-y-4">
             {navLinks.map((link) => (
               <Link

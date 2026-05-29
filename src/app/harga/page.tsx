@@ -28,7 +28,7 @@ export default function HargaPage() {
         <div className="rounded-[3rem] bg-[#061734] px-6 py-12 sm:p-16 lg:p-20 border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-20 lg:items-center mb-24 max-w-5xl mx-auto">
            <div className="relative z-10 lg:w-1/2">
               <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-4 py-1.5 text-xs font-bold text-blue-300 uppercase tracking-wider mb-8">
-                 ⭐ Lisensi Seumur Hidup
+                 Lisensi Seumur Hidup
               </div>
               <div className="flex items-end gap-2 text-white mb-4">
                  <span className="text-2xl font-bold text-white/70 pb-2">Rp</span>

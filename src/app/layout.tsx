@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Outfit, Red_Hat_Display } from "next/font/google";
 import UkasirNavbar from "@/components/ukasir/Navbar";
 import UkasirFooter from "@/components/ukasir/Footer";
+import { getContentBlock } from "@/actions/content";
+import { FooterData } from "@/components/ukasir/defaultData";
 import "./globals.css";
 import "@/styles/ukasir.css";
 
@@ -18,6 +20,7 @@ const redHatDisplay = Red_Hat_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: "uKasir - Aplikasi Kasir Offline UMKM #1 di Indonesia",
   description: "Aplikasi kasir sederhana, cepat, dan stabil untuk UMKM. Tanpa biaya bulanan, cukup beli sekali pakai selamanya. Mendukung Offline Mode & Printer Thermal.",
   keywords: ["aplikasi kasir", "pos system offline", "kasir umkm", "software kasir murah", "ukasir indonesia"],
@@ -35,19 +38,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const footerBlock = await getContentBlock("footer");
+  const footerData = footerBlock ? (footerBlock as unknown as FooterData) : undefined;
+
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang="id" className="scroll-smooth" data-scroll-behavior="smooth">
       <body className={`${outfit.variable} ${redHatDisplay.variable} relative flex min-h-screen flex-col bg-slate-50 font-[family-name:var(--font-outfit)]`}>
         <UkasirNavbar />
         <main className="flex-1">
           {children}
         </main>
-        <UkasirFooter />
+        <UkasirFooter data={footerData} />
       </body>
     </html>
   );
