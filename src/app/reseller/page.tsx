@@ -4,6 +4,21 @@ import { useState } from "react";
 import { Send, CheckCircle, Users, BadgePercent, Layout, Headphones } from "lucide-react";
 import Swal from "sweetalert2";
 
+export const metadata = {
+  title: 'Program Reseller uKasir | Tambah Penghasilan Anda',
+  description: 'Bergabung menjadi reseller uKasir dan dapatkan penghasilan tambahan dengan membantu UMKM digitalisasi usaha mereka menggunakan aplikasi kasir offline terbaik.',
+  keywords: ['reseller aplikasi kasir', 'program mitra ukasir', 'bisnis sampingan', 'jual software kasir', 'mitra pos system'],
+  alternates: {
+    canonical: '/reseller',
+  },
+  openGraph: {
+    title: 'Program Reseller uKasir | Tambah Penghasilan Anda',
+    description: 'Dapatkan komisi menguntungkan dengan menjual aplikasi kasir offline tanpa biaya langganan bulanan kepada UMKM.',
+    url: '/reseller',
+    images: ['/images/ukasir-og.png'],
+  },
+};
+
 export default function UkasirResellerPage() {
   const [formData, setFormData] = useState({
     nama: "",

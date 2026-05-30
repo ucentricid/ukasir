@@ -43,8 +43,30 @@ export default async function UkasirPage() {
   const ctaBlock = await getContentBlock("cta");
   const ctaData = ctaBlock ? (ctaBlock as unknown as CTAData) : undefined;
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'uKasir',
+    operatingSystem: 'ANDROID, IOS, WINDOWS',
+    applicationCategory: 'BusinessApplication',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '1250',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '149000',
+      priceCurrency: 'IDR',
+    },
+  };
+
   return (
     <div className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <HeroSection data={heroData} />
       <PainPointsSection data={painPointsData} />
       <FeaturesSection data={featuresData} />

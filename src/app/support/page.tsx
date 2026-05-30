@@ -1,5 +1,20 @@
 import { HelpCircle, Play, FileText, MessageCircle, Mail } from "lucide-react";
 
+export const metadata = {
+  title: 'Pusat Bantuan uKasir | Customer Support & FAQ',
+  description: 'Punya pertanyaan tentang uKasir? Temukan jawaban dari FAQ, tonton video tutorial, baca panduan, atau hubungi langsung tim support WhatsApp kami.',
+  keywords: ['bantuan ukasir', 'support ukasir', 'cara menggunakan ukasir', 'customer service kasir', 'faq ukasir'],
+  alternates: {
+    canonical: '/support',
+  },
+  openGraph: {
+    title: 'Pusat Bantuan uKasir | Customer Support & FAQ',
+    description: 'Tim kami siap membantu kebingungan Anda mengenai aplikasi kasir uKasir. Bantuan langsung via WhatsApp setiap hari.',
+    url: '/support',
+    images: ['/images/ukasir-og.png'],
+  },
+};
+
 export default function UkasirSupportPage() {
   const faqs = [
     {

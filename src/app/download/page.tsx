@@ -1,6 +1,21 @@
 import { Smartphone, Monitor, Download, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+  title: 'Download Aplikasi Kasir uKasir | Android & Windows',
+  description: 'Download gratis installer uKasir versi terbaru untuk OS Android dan Windows. Aplikasi kasir offline cepat tanpa biaya langganan.',
+  keywords: ['download ukasir', 'unduh aplikasi kasir', 'download pos system offline', 'software kasir windows', 'aplikasi kasir android apk'],
+  alternates: {
+    canonical: '/download',
+  },
+  openGraph: {
+    title: 'Download Aplikasi Kasir uKasir | Android & Windows',
+    description: 'Pilih platform Android atau Windows untuk mulai menggunakan uKasir di toko Anda hari ini.',
+    url: '/download',
+    images: ['/images/ukasir-og.png'],
+  },
+};
+
 export default function UkasirDownloadPage() {
   const platforms = [
     {

@@ -4,6 +4,10 @@ import Sidebar from "@/components/admin/Sidebar";
 export const metadata = {
   title: "uKasir CMS Admin",
   description: "Content Management System for uKasir Landing Page",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function AdminLayout({

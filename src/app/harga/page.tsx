@@ -4,7 +4,17 @@ import { ArrowLeft, Check, X, ArrowRight } from 'lucide-react';
 
 export const metadata = {
   title: 'Harga uKasir | Investasi Sekali Seumur Hidup',
-  description: 'Tidak ada biaya langganan bulanan. Cukup bayar Rp 149.000 sekali untuk mendapatkan lisensi uKasir seumur hidup dengan semua fitur.',
+  description: 'Tidak ada biaya langganan bulanan. Cukup bayar Rp 149.000 sekali untuk mendapatkan lisensi uKasir seumur hidup dengan semua fitur kasir offline.',
+  keywords: ['harga ukasir', 'aplikasi kasir sekali bayar', 'kasir lifetime', 'harga pos system', 'beli ukasir'],
+  alternates: {
+    canonical: '/harga',
+  },
+  openGraph: {
+    title: 'Harga uKasir | Investasi Sekali Seumur Hidup',
+    description: 'Cukup bayar Rp 149.000 sekali untuk mendapatkan lisensi uKasir seumur hidup.',
+    url: '/harga',
+    images: ['/images/ukasir-og.png'],
+  },
 };
 
 export default function HargaPage() {

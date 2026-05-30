@@ -4,7 +4,17 @@ import { ArrowLeft, CheckCircle2, Package, Users, Receipt, Printer, RotateCcw, U
 
 export const metadata = {
   title: 'Fitur Lengkap uKasir | Aplikasi Kasir Offline',
-  description: 'Pelajari semua fitur uKasir secara detail. Dari POS cepat, manajemen stok, laporan keuangan lengkap, hingga multi-user kasir.',
+  description: 'Pelajari semua fitur uKasir secara detail. Dari POS cepat, manajemen stok, laporan keuangan lengkap, hingga multi-user kasir tanpa biaya bulanan.',
+  keywords: ['fitur kasir', 'laporan penjualan', 'manajemen stok', 'kasir offline fitur', 'ukasir features'],
+  alternates: {
+    canonical: '/fitur',
+  },
+  openGraph: {
+    title: 'Fitur Lengkap uKasir | Aplikasi Kasir Offline',
+    description: 'Pelajari semua fitur uKasir secara detail. Dari POS cepat, manajemen stok, laporan keuangan lengkap, hingga multi-user kasir.',
+    url: '/fitur',
+    images: ['/images/ukasir-og.png'],
+  },
 };
 
 export default function FiturPage() {
