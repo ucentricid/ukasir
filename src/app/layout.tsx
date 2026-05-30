@@ -20,7 +20,7 @@ const redHatDisplay = Red_Hat_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ukasir.id"),
   title: "uKasir - Aplikasi Kasir Offline UMKM #1 di Indonesia",
   description: "Aplikasi kasir sederhana, cepat, dan stabil untuk UMKM. Tanpa biaya bulanan, cukup beli sekali pakai selamanya. Mendukung Offline Mode & Printer Thermal.",
   keywords: ["aplikasi kasir", "pos system offline", "kasir umkm", "software kasir murah", "ukasir indonesia", "aplikasi kasir tanpa internet", "kasir android", "kasir iOS", "aplikasi toko"],
