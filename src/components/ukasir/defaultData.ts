@@ -1,5 +1,35 @@
 // src/components/ukasir/defaultData.ts
 
+// 0. NAVBAR
+export interface NavbarLink {
+  label: string;
+  href: string;
+}
+
+export interface NavbarData {
+  logoUrl?: string;
+  links: NavbarLink[];
+  trialButtonText: string;
+  trialButtonHref: string;
+  buyButtonText: string;
+  buyButtonHref: string;
+}
+
+export const defaultNavbarData: NavbarData = {
+  logoUrl: "/images/logo.svg",
+  links: [
+    { label: "Fitur", href: "/#fitur" },
+    { label: "Cara Kerja", href: "/#cara-kerja" },
+    { label: "Harga", href: "/#harga" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Reseller", href: "/reseller" },
+  ],
+  trialButtonText: "Coba Gratis",
+  trialButtonHref: "/trial",
+  buyButtonText: "Beli",
+  buyButtonHref: "/buy",
+};
+
 // 1. HERO
 export interface HeroData {
   badgeText?: string;

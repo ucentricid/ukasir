@@ -28,7 +28,7 @@ export default function TestimonialsSection({ data = defaultTestimonialsData, is
                   <div className="flex text-amber-400 mb-6">
                     {[1,2,3,4,5].map(star => <Star key={star} className="w-5 h-5 fill-current" />)}
                   </div>
-                  <p className="text-gray-600 italic mb-8 flex-1 line-clamp-4">"{testi.quote}"</p>
+                  <div className="text-gray-600 italic mb-8 flex-1 line-clamp-4 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-4 [&_ol]:ml-4" dangerouslySetInnerHTML={{ __html: testi.quote }} />
                   <div className="flex items-center gap-4">
                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-[#061734] flex items-center justify-center text-white font-bold font-red-hat-display">
                         {testi.name.split(' ').map(n => n[0]).join('')}

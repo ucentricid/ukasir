@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, LogOut, Settings, LayoutTemplate } from "lucide-react";
+import { LayoutDashboard, LogOut, Settings, LayoutTemplate, Layers } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -37,6 +37,16 @@ export default function Sidebar() {
           }`}
         >
           <LayoutTemplate className="w-5 h-5" /> Unified Editor
+        </Link>
+        <Link 
+          href="/admin/pages" 
+          className={`flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-colors ${
+            pathname?.startsWith('/admin/pages')
+              ? 'bg-blue-600/20 text-blue-400' 
+              : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+          }`}
+        >
+          <Layers className="w-5 h-5" /> Landing Pages
         </Link>
       </nav>
 

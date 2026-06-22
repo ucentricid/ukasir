@@ -24,9 +24,7 @@ export default function PricingSection({ data = defaultPricingData, isEditor = f
              <p onClick={clickHandler('headline')} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 font-red-hat-display inline-block leading-tight ${editorClass}`}>
                 {content.headline}
              </p>
-             <p onClick={clickHandler('description')} className={`mt-6 text-lg text-gray-600 ${editorClass}`}>
-                {content.description}
-             </p>
+             <div onClick={clickHandler('description')} className={`mt-6 text-lg text-gray-600 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5 ${editorClass}`} dangerouslySetInnerHTML={{ __html: content.description }} />
           </div>
 
           <div className="rounded-2xl sm:rounded-[3rem] bg-[#061734] px-5 py-10 sm:p-16 lg:p-20 border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-20 lg:items-center">

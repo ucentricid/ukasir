@@ -24,9 +24,7 @@ export default function PainPointsSection({ data = defaultPainPointsData, isEdit
           <p onClick={clickHandler('headline')} className={`text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl font-red-hat-display ${editorClass}`}>
              {content.headline}
           </p>
-          <p onClick={clickHandler('description')} className={`mt-6 text-lg leading-8 text-gray-400 ${editorClass}`}>
-            {content.description}
-          </p>
+          <div onClick={clickHandler('description')} className={`mt-6 text-lg leading-8 text-gray-400 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5 ${editorClass}`} dangerouslySetInnerHTML={{ __html: content.description }} />
         </div>
         <div onClick={clickHandler('points')} className={`mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none ${isEditor ? 'hover:outline hover:outline-2 hover:outline-blue-400 hover:outline-dashed hover:cursor-pointer hover:bg-white/5 rounded-2xl p-2 transition-all' : ''}`}>
           <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,7 +37,7 @@ export default function PainPointsSection({ data = defaultPainPointsData, isEdit
                   <dt className="text-base sm:text-lg font-bold leading-6 text-white font-red-hat-display mb-1 sm:mb-3">
                     {p.title}
                   </dt>
-                  <dd className="text-xs sm:text-sm leading-5 sm:leading-6 text-gray-400">{p.desc}</dd>
+                  <dd className="text-xs sm:text-sm leading-5 sm:leading-6 text-gray-400 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-4 [&_ol]:ml-4" dangerouslySetInnerHTML={{ __html: p.desc }} />
                 </div>
               </div>
             ))}

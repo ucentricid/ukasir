@@ -20,9 +20,7 @@ export default function HowItWorksSection({ data = defaultHowItWorksData, isEdit
           <p onClick={clickHandler('headline')} className={`text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl font-red-hat-display ${editorClass}`}>
              {content.headline}
           </p>
-          <p onClick={clickHandler('description')} className={`mt-6 text-lg text-gray-600 ${editorClass}`}>
-             {content.description}
-          </p>
+          <div onClick={clickHandler('description')} className={`mt-6 text-lg text-gray-600 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5 ${editorClass}`} dangerouslySetInnerHTML={{ __html: content.description }} />
         </div>
 
         <div onClick={clickHandler('steps')} className={`relative mt-12 sm:mt-20 ${isEditor ? 'hover:outline hover:outline-2 hover:outline-blue-400 hover:outline-dashed hover:cursor-pointer p-2 rounded-3xl transition-all' : ''}`}>
@@ -37,7 +35,7 @@ export default function HowItWorksSection({ data = defaultHowItWorksData, isEdit
                     </div>
                     <div className="flex-1">
                         <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-1 lg:mb-3">{step.title}</h3>
-                        <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
+                        <div className="text-gray-500 text-xs sm:text-sm leading-relaxed [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-4 [&_ol]:ml-4" dangerouslySetInnerHTML={{ __html: step.desc }} />
                     </div>
                 </div>
               ))}

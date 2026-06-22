@@ -90,9 +90,7 @@ export default function FAQ({ data = defaultFAQData, isEditor = false }: { data?
                     openIndex === idx ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="px-6 pb-6 text-gray-600 text-base leading-relaxed">
-                    {faq.a}
-                  </div>
+                  <div className="px-6 pb-6 text-gray-600 text-base leading-relaxed [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5" dangerouslySetInnerHTML={{ __html: faq.a }} />
                 </div>
               </div>
             ))}

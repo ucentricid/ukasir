@@ -26,9 +26,7 @@ export default function FeaturesSection({ data = defaultFeaturesData, isEditor =
               dangerouslySetInnerHTML={{ __html: content.headline }}
             ></p>
           </div>
-          <p onClick={clickHandler('description')} className={`mt-6 text-lg text-gray-600 ${editorClass}`}>
-             {content.description}
-          </p>
+          <div onClick={clickHandler('description')} className={`mt-6 text-lg text-gray-600 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5 ${editorClass}`} dangerouslySetInnerHTML={{ __html: content.description }} />
         </div>
         
         <div onClick={clickHandler('bentoItems')} className={`ukasir-bento-grid ${isEditor ? 'hover:outline hover:outline-2 hover:outline-blue-400 hover:outline-dashed hover:cursor-pointer p-2 rounded-3xl transition-all' : ''}`}>
@@ -44,7 +42,7 @@ export default function FeaturesSection({ data = defaultFeaturesData, isEditor =
                           className="text-3xl font-bold font-red-hat-display mb-4"
                           dangerouslySetInnerHTML={{ __html: item.title }}
                         ></h3>
-                        <p className="text-blue-100 text-base mb-8 max-w-md">{item.desc}</p>
+                        <div className="text-blue-100 text-base mb-8 max-w-md [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5" dangerouslySetInnerHTML={{ __html: item.desc }} />
                         <div><span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{item.tag}</span></div>
                     </div>
                     {/* Visual Decorator for the large block */}
@@ -77,7 +75,7 @@ export default function FeaturesSection({ data = defaultFeaturesData, isEditor =
                     <DynamicIcon name={item.icon} className="h-7 w-7 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 font-red-hat-display mb-3">{item.title}</h3>
-                  <p className="text-sm text-gray-600 mb-6 flex-1">{item.desc}</p>
+                  <div className="text-sm text-gray-600 mb-6 flex-1 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5" dangerouslySetInnerHTML={{ __html: item.desc }} />
                   <div><span className="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full">{item.tag}</span></div>
               </div>
             );
@@ -101,7 +99,7 @@ export default function FeaturesSection({ data = defaultFeaturesData, isEditor =
                  </div>
                  <div>
                    <h4 className="font-bold text-gray-900 mb-1.5 text-sm sm:text-base">{f.title}</h4>
-                   <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                   <div className="text-xs sm:text-sm text-gray-500 leading-relaxed [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-4 [&_ol]:ml-4" dangerouslySetInnerHTML={{ __html: f.desc }} />
                  </div>
               </div>
            )})}

@@ -4,21 +4,27 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import { NavbarData, defaultNavbarData } from "./defaultData";
 
-export default function UkasirNavbar() {
+export default function UkasirNavbar({ data = defaultNavbarData, isEditor = false }: { data?: Partial<NavbarData>, isEditor?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  
+  const content = { ...defaultNavbarData, ...data };
 
-  if (pathname.startsWith('/admin')) return null;
+  if ((pathname.startsWith('/admin') || pathname.startsWith('/preview')) && !isEditor) return null;
 
-  const navLinks = [
-    { name: "Fitur", href: "/#fitur" },
-    { name: "Cara Kerja", href: "/#cara-kerja" },
-    { name: "Harga", href: "/#harga" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "Reseller", href: "/reseller" },
-  ];
+  const editorClass = isEditor ? " hover:outline hover:outline-2 hover:outline-blue-400 hover:outline-dashed hover:cursor-pointer hover:bg-blue-50/50 rounded-lg p-1 -m-1 transition-all" : "";
+  const clickHandler = (fieldName: string) => isEditor ? (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'SCROLL_TO_FIELD', fieldName, sectionId: 'navbar' }, '*');
+    }
+  } : undefined;
+
+  const navLinks = content.links;
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/#') && pathname === '/') {
@@ -38,9 +44,9 @@ export default function UkasirNavbar() {
       <div className="w-full max-w-7xl ukasir-nav-pill rounded-full px-4 py-1.5 sm:px-6 sm:py-3 border border-gray-100 flex items-center justify-between transition-all duration-300">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+          <Link href="/" className={`flex items-center gap-2 hover:opacity-90 transition-opacity ${editorClass}`} onClick={clickHandler('logoUrl')}>
             <img 
-              src="/images/logo.svg" 
+              src={content.logoUrl || "/images/logo.svg"} 
               alt="uKasir Logo" 
               className="h-6 sm:h-8 w-auto" 
             />
@@ -50,28 +56,32 @@ export default function UkasirNavbar() {
         {/* Desktop Menu */}
         <div className="hidden md:block">
           <div className="flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-bold text-gray-500 hover:text-blue-600 transition-all hover:translate-y-[-1px]"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className={`${editorClass} flex items-center space-x-8`} onClick={clickHandler('links')}>
+              {navLinks.map((link, idx) => (
+                <Link
+                  key={idx}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-sm font-bold text-gray-500 hover:text-blue-600 transition-all hover:translate-y-[-1px]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
             <div className="flex items-center gap-6 border-l border-gray-100 pl-8">
               <Link
-                href="/trial"
-                className="text-sm font-bold text-gray-900 hover:text-blue-600 transition-colors"
+                href={content.trialButtonHref}
+                className={`text-sm font-bold text-gray-900 hover:text-blue-600 transition-colors ${editorClass}`}
+                onClick={clickHandler('trialButtonText')}
               >
-                Coba Gratis
+                {content.trialButtonText}
               </Link>
               <Link
-                href="/buy"
-                className="ukasir-btn-premium rounded-full px-6 py-2.5 text-sm font-bold text-white transition-all flex items-center gap-2"
+                href={content.buyButtonHref}
+                className={`ukasir-btn-premium rounded-full px-6 py-2.5 text-sm font-bold text-white transition-all flex items-center gap-2 ${editorClass}`}
+                onClick={clickHandler('buyButtonText')}
               >
-                Beli <ArrowRight className="h-4 w-4" />
+                {content.buyButtonText} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -92,30 +102,30 @@ export default function UkasirNavbar() {
       {isOpen && (
         <div className="md:hidden absolute top-[3.5rem] sm:top-20 left-4 right-4 bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 animate-in fade-in zoom-in duration-300">
           <div className="space-y-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link, idx) => (
               <Link
-                key={link.name}
+                key={idx}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="block text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors"
               >
-                {link.name}
+                {link.label}
               </Link>
             ))}
             <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-gray-100">
                 <Link
-                  href="/trial"
+                  href={content.trialButtonHref}
                   className="block text-center rounded-xl border border-gray-200 px-4 py-3 text-sm font-bold text-gray-900"
                   onClick={() => setIsOpen(false)}
                 >
-                  Coba Gratis
+                  {content.trialButtonText}
                 </Link>
                 <Link
-                  href="/buy"
+                  href={content.buyButtonHref}
                   className="block text-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-white shadow-lg"
                   onClick={() => setIsOpen(false)}
                 >
-                  Beli Sekarang
+                  {content.buyButtonText}
                 </Link>
             </div>
           </div>

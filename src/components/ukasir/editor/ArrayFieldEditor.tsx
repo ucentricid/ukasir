@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Plus, Trash2, ChevronDown, ChevronUp, GripVertical, Image as ImageIcon } from "lucide-react";
 import ImageUploader from "../ImageUploader";
 
+import RichTextEditor from "./RichTextEditor";
+
 interface FieldDef {
   name: string;
   label: string;
-  type: "text" | "textarea" | "icon" | "image";
+  type: "text" | "textarea" | "icon" | "image" | "richtext";
 }
 
 interface ArrayFieldEditorProps {
@@ -90,6 +92,11 @@ export default function ArrayFieldEditor({ id, title, items, fields, onChange }:
                             onChange={(e) => handleItemChange(index, field.name, e.target.value)}
                             rows={3}
                             className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-[13px] rounded-lg px-3 py-2 focus:bg-white focus:border-blue-500 transition-colors"
+                          />
+                        ) : field.type === "richtext" ? (
+                          <RichTextEditor
+                            value={item[field.name] || ""}
+                            onChange={(val) => handleItemChange(index, field.name, val)}
                           />
                         ) : field.type === "icon" ? (
                           <div className="flex items-center gap-2">

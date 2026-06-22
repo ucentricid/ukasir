@@ -63,7 +63,7 @@ export default function PreviewIframe() {
     const target = e.target as HTMLElement;
     const section = target.closest('[id]');
     if (section && section.id) {
-       const validSections = ['hero', 'painpoints', 'features', 'howitworks', 'segments', 'pricing', 'testimonials', 'faq', 'cta', 'footer'];
+       const validSections = ['navbar', 'hero', 'painpoints', 'features', 'howitworks', 'segments', 'pricing', 'testimonials', 'faq', 'cta', 'footer'];
        if (validSections.includes(section.id)) {
           window.parent.postMessage({ type: 'SECTION_CLICKED', sectionId: section.id }, '*');
        }
@@ -86,7 +86,7 @@ export default function PreviewIframe() {
 
   return (
     <div className={`relative font-[family-name:var(--font-outfit)] bg-slate-50 min-h-screen flex flex-col transition-opacity duration-500 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
-      <UkasirNavbar />
+      <div id="navbar" onClick={handleCanvasClick} className="cursor-pointer hover:ring-2 hover:ring-blue-400/50 transition-all z-50 relative"><UkasirNavbar data={data.navbar} isEditor={true} /></div>
       <main className="flex-1 cursor-pointer" onClick={handleCanvasClick}>
          <div id="hero" className="hover:ring-2 hover:ring-blue-400/50 transition-all"><HeroSection data={data.hero} isEditor={true} /></div>
          <div id="painpoints" className="hover:ring-2 hover:ring-blue-400/50 transition-all"><PainPointsSection data={data.painpoints} isEditor={true} /></div>

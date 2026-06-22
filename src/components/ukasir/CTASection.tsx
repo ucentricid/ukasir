@@ -18,12 +18,8 @@ export default function CTASection({ data = defaultCTAData, isEditor = false }: 
     <section className="bg-[#061734] py-24 sm:py-32 relative overflow-hidden text-center" id="cta">
        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(29,97,230,0.2)_0%,transparent_55%),radial-gradient(ellipse_at_70%_50%,rgba(29,97,230,0.15)_0%,transparent_55%)] pointer-events-none"></div>
        <div className="mx-auto max-w-3xl px-6 lg:px-8 relative z-10">
-          <h2 onClick={clickHandler('headline')} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-red-hat-display mb-5 sm:mb-6 ${editorClassDark}`}>
-             {content.headline}
-          </h2>
-          <p onClick={clickHandler('description')} className={`text-lg text-white/60 mb-10 leading-relaxed ${editorClassDark}`}>
-             {content.description}
-          </p>
+          <h2 onClick={clickHandler('headline')} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-red-hat-display mb-5 sm:mb-6 ${editorClassDark}`} dangerouslySetInnerHTML={{ __html: content.headline }} />
+          <div onClick={clickHandler('description')} className={`text-lg text-white/60 mb-10 leading-relaxed [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5 ${editorClassDark}`} dangerouslySetInnerHTML={{ __html: content.description }} />
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
              <div onClick={clickHandler('buttonText')} className={editorClassDark}>
                <Link href="/buy" className="ukasir-btn-glow rounded-full bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-blue-500/30 hover:bg-blue-500 transition-all w-full sm:w-auto">

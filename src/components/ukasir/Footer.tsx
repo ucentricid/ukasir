@@ -9,7 +9,7 @@ export default function UkasirFooter({ data = defaultFooterData, isPreview = fal
   const pathname = usePathname();
   const content = { ...defaultFooterData, ...data };
 
-  if (!isPreview && pathname.startsWith('/admin')) return null;
+  if (!isPreview && (pathname.startsWith('/admin') || pathname.startsWith('/preview'))) return null;
 
   const editorClass = isPreview ? " hover:outline hover:outline-2 hover:outline-blue-400 hover:outline-dashed hover:cursor-pointer hover:bg-blue-50/50 rounded-lg p-1 -m-1 transition-all" : "";
   const clickHandler = (fieldName: string) => isPreview ? (e: React.MouseEvent) => {

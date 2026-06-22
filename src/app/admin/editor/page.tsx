@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { LayoutTemplate, AlertCircle, Star, ListOrdered, Users, CreditCard, MessageSquare, HelpCircle, Megaphone, Save, Monitor, Smartphone, LayoutGrid } from "lucide-react";
+import { LayoutTemplate, AlertCircle, Star, ListOrdered, Users, CreditCard, MessageSquare, HelpCircle, Megaphone, Save, Monitor, Smartphone, LayoutGrid, PanelTop } from "lucide-react";
 import Swal from "sweetalert2";
 
 // Import Landing Page components for live preview
@@ -19,7 +19,7 @@ import CTASection from "@/components/ukasir/CTASection";
 import { 
   defaultHeroData, defaultPainPointsData, defaultFeaturesData, defaultHowItWorksData,
   defaultTargetSegmentsData, defaultPricingData, defaultTestimonialsData, defaultCTAData,
-  defaultFooterData, FooterData
+  defaultFooterData, FooterData, defaultNavbarData
 } from "@/components/ukasir/defaultData";
 import { defaultFAQData } from "@/components/ukasir/FAQ";
 import UkasirFooter from "@/components/ukasir/Footer";
@@ -28,10 +28,11 @@ import HeroFormFields from "@/components/ukasir/HeroFormFields";
 import { 
   PainPointsFormFields, FeaturesFormFields, HowItWorksFormFields, 
   TargetSegmentsFormFields, PricingFormFields, TestimonialsFormFields, 
-  FAQFormFields, CTAFormFields, FooterFormFields
+  FAQFormFields, CTAFormFields, FooterFormFields, NavbarFormFields
 } from "@/components/ukasir/editor/SectionForms";
 
 const SECTIONS = [
+  { id: "navbar", label: "Navbar", icon: PanelTop, defaultData: defaultNavbarData },
   { id: "hero", label: "Hero Section", icon: LayoutTemplate, defaultData: defaultHeroData },
   { id: "painpoints", label: "Masalah (Pain Points)", icon: AlertCircle, defaultData: defaultPainPointsData },
   { id: "features", label: "Fitur Unggulan", icon: Star, defaultData: defaultFeaturesData },
@@ -45,7 +46,7 @@ const SECTIONS = [
 ];
 
 export default function UnifiedEditorPage() {
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState("navbar");
   const [previewDevice, setPreviewDevice] = useState<"desktop" | "mobile">("desktop");
   const [isSaving, setIsSaving] = useState(false);
   const [scale, setScale] = useState(1);
@@ -222,7 +223,8 @@ export default function UnifiedEditorPage() {
   const renderForm = () => {
     const props = { data: cmsData[activeSection], setData: updateActiveData };
     switch (activeSection) {
-              case "hero": return <HeroFormFields {...props} inputBase="w-full bg-white border border-slate-200 text-slate-800 text-[13px] rounded-lg px-3 py-2.5 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm" handleChange={(e: any) => updateActiveData({ ...cmsData["hero"], [e.target.name]: e.target.value })} />;
+      case "navbar": return <NavbarFormFields {...props} />;
+      case "hero": return <HeroFormFields {...props} inputBase="w-full bg-white border border-slate-200 text-slate-800 text-[13px] rounded-lg px-3 py-2.5 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm" handleChange={(e: any) => updateActiveData({ ...cmsData["hero"], [e.target.name]: e.target.value })} />;
       case "painpoints": return <PainPointsFormFields {...props} />;
       case "features": return <FeaturesFormFields {...props} />;
       case "howitworks": return <HowItWorksFormFields {...props} />;

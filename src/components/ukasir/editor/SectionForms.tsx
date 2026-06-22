@@ -1,11 +1,15 @@
 import React from "react";
 import ArrayFieldEditor from "./ArrayFieldEditor";
+import RichTextEditor from "./RichTextEditor";
+import ImageUploader from "../ImageUploader";
 
 // Reusable Input Field Helper
-const InputField = ({ id, label, value, onChange, type = "text", isTextArea = false }: { id?: string, label: string, value: string, onChange: (val: string) => void, type?: string, isTextArea?: boolean }) => (
+const InputField = ({ id, label, value, onChange, type = "text", isTextArea = false, isRichText = false }: { id?: string, label: string, value: string, onChange: (val: string) => void, type?: string, isTextArea?: boolean, isRichText?: boolean }) => (
   <div className="mb-4">
     <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">{label}</label>
-    {isTextArea ? (
+    {isRichText ? (
+      <RichTextEditor value={value || ""} onChange={onChange} />
+    ) : isTextArea ? (
       <textarea 
         id={id}
         value={value || ""} onChange={(e) => onChange(e.target.value)} rows={3}
@@ -28,7 +32,7 @@ export const PainPointsFormFields = ({ data, setData }: any) => {
     <div>
       <InputField id="field-badge" label="Badge Text" value={data.badge} onChange={(v) => handleChange("badge", v)} />
       <InputField id="field-headline" label="Headline" value={data.headline} onChange={(v) => handleChange("headline", v)} />
-      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isTextArea />
+      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isRichText />
       
       <ArrayFieldEditor 
         id="field-points"
@@ -37,7 +41,7 @@ export const PainPointsFormFields = ({ data, setData }: any) => {
         onChange={(items) => handleChange("points", items)}
         fields={[
           { name: "title", label: "Judul", type: "text" },
-          { name: "desc", label: "Deskripsi", type: "textarea" },
+          { name: "desc", label: "Deskripsi", type: "richtext" },
           { name: "icon", label: "Lucide Icon Name (e.g. FileX, Coins)", type: "icon" }
         ]}
       />
@@ -51,8 +55,8 @@ export const FeaturesFormFields = ({ data, setData }: any) => {
   return (
     <div>
       <InputField id="field-badge" label="Badge Text" value={data.badge} onChange={(v) => handleChange("badge", v)} />
-      <InputField id="field-headline" label="Headline (HTML allowed for <br/>)" value={data.headline} onChange={(v) => handleChange("headline", v)} isTextArea />
-      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isTextArea />
+      <InputField id="field-headline" label="Headline" value={data.headline} onChange={(v) => handleChange("headline", v)} isRichText />
+      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isRichText />
       <InputField id="field-ctaText" label="Tombol CTA Bawah" value={data.ctaText} onChange={(v) => handleChange("ctaText", v)} />
       
       <ArrayFieldEditor 
@@ -62,7 +66,7 @@ export const FeaturesFormFields = ({ data, setData }: any) => {
         onChange={(items) => handleChange("bentoItems", items)}
         fields={[
           { name: "title", label: "Judul", type: "text" },
-          { name: "desc", label: "Deskripsi", type: "textarea" },
+          { name: "desc", label: "Deskripsi", type: "richtext" },
           { name: "tag", label: "Tag/Label", type: "text" },
           { name: "icon", label: "Lucide Icon", type: "icon" },
         ]}
@@ -74,7 +78,7 @@ export const FeaturesFormFields = ({ data, setData }: any) => {
         onChange={(items) => handleChange("smallItems", items)}
         fields={[
           { name: "title", label: "Judul", type: "text" },
-          { name: "desc", label: "Deskripsi", type: "textarea" },
+          { name: "desc", label: "Deskripsi", type: "richtext" },
           { name: "icon", label: "Lucide Icon", type: "icon" },
         ]}
       />
@@ -89,7 +93,7 @@ export const HowItWorksFormFields = ({ data, setData }: any) => {
     <div>
       <InputField id="field-badge" label="Badge Text" value={data.badge} onChange={(v) => handleChange("badge", v)} />
       <InputField id="field-headline" label="Headline" value={data.headline} onChange={(v) => handleChange("headline", v)} />
-      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isTextArea />
+      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isRichText />
       
       <ArrayFieldEditor 
         id="field-steps"
@@ -99,7 +103,7 @@ export const HowItWorksFormFields = ({ data, setData }: any) => {
         fields={[
           { name: "num", label: "Nomor/Angka", type: "text" },
           { name: "title", label: "Judul Langkah", type: "text" },
-          { name: "desc", label: "Deskripsi", type: "textarea" },
+          { name: "desc", label: "Deskripsi", type: "richtext" },
         ]}
       />
     </div>
@@ -112,7 +116,7 @@ export const TargetSegmentsFormFields = ({ data, setData }: any) => {
   return (
     <div>
       <InputField id="field-headline" label="Headline" value={data.headline} onChange={(v) => handleChange("headline", v)} />
-      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isTextArea />
+      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isRichText />
       <ArrayFieldEditor 
         id="field-segments"
         title="Jenis Bisnis" 
@@ -135,7 +139,7 @@ export const PricingFormFields = ({ data, setData }: any) => {
     <div>
       <InputField id="field-badge" label="Badge Text" value={data.badge} onChange={(v) => handleChange("badge", v)} />
       <InputField id="field-headline" label="Headline" value={data.headline} onChange={(v) => handleChange("headline", v)} />
-      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isTextArea />
+      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isRichText />
       <InputField id="field-price" label="Harga (Format Angka misal 149.000)" value={data.price} onChange={(v) => handleChange("price", v)} />
       <InputField id="field-savingsText" label="Teks Hemat (Highlight)" value={data.savingsText} onChange={(v) => handleChange("savingsText", v)} />
       
@@ -168,7 +172,7 @@ export const TestimonialsFormFields = ({ data, setData }: any) => {
         fields={[
           { name: "name", label: "Nama Lengkap", type: "text" },
           { name: "role", label: "Peran/Bisnis", type: "text" },
-          { name: "quote", label: "Kutipan Review", type: "textarea" },
+          { name: "quote", label: "Kutipan Review", type: "richtext" },
         ]}
       />
     </div>
@@ -189,7 +193,7 @@ export const FAQFormFields = ({ data, setData }: any) => {
         onChange={(items) => handleChange("items", items)}
         fields={[
           { name: "q", label: "Pertanyaan", type: "text" },
-          { name: "a", label: "Jawaban", type: "textarea" },
+          { name: "a", label: "Jawaban", type: "richtext" },
         ]}
       />
     </div>
@@ -201,8 +205,8 @@ export const CTAFormFields = ({ data, setData }: any) => {
   const handleChange = (key: string, val: any) => setData((prev: any) => ({ ...prev, [key]: val }));
   return (
     <div>
-      <InputField id="field-headline" label="Headline" value={data.headline} onChange={(v) => handleChange("headline", v)} isTextArea />
-      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isTextArea />
+      <InputField id="field-headline" label="Headline" value={data.headline} onChange={(v) => handleChange("headline", v)} isRichText />
+      <InputField id="field-description" label="Description" value={data.description} onChange={(v) => handleChange("description", v)} isRichText />
       <InputField id="field-buttonText" label="Teks Tombol Utama" value={data.buttonText} onChange={(v) => handleChange("buttonText", v)} />
       <InputField id="field-trialText" label="Teks Tombol Trial" value={data.trialText} onChange={(v) => handleChange("trialText", v)} />
       <InputField id="field-guaranteeText" label="Teks Garansi/Kepercayaan (Bawah)" value={data.guaranteeText} onChange={(v) => handleChange("guaranteeText", v)} />
@@ -238,6 +242,38 @@ export const FooterFormFields = ({ data, setData }: any) => {
           ]}
         />
       ))}
+    </div>
+  );
+};
+
+// 10. Navbar Form
+export const NavbarFormFields = ({ data, setData }: any) => {
+  const handleChange = (key: string, val: any) => setData((prev: any) => ({ ...prev, [key]: val }));
+  return (
+    <div>
+      <div className="mb-4">
+        <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Logo</label>
+        <ImageUploader 
+          currentImage={data.logoUrl} 
+          onUpload={(url: string) => handleChange("logoUrl", url)} 
+        />
+      </div>
+      
+      <ArrayFieldEditor 
+        id="field-links"
+        title="Menu Navigasi" 
+        items={data.links || []} 
+        onChange={(items) => handleChange("links", items)}
+        fields={[
+          { name: "label", label: "Teks Menu", type: "text" },
+          { name: "href", label: "URL/Link", type: "text" },
+        ]}
+      />
+
+      <InputField id="field-trialButtonText" label="Teks Tombol Coba Gratis" value={data.trialButtonText} onChange={(v) => handleChange("trialButtonText", v)} />
+      <InputField id="field-trialButtonHref" label="URL Tombol Coba Gratis" value={data.trialButtonHref} onChange={(v) => handleChange("trialButtonHref", v)} />
+      <InputField id="field-buyButtonText" label="Teks Tombol Beli" value={data.buyButtonText} onChange={(v) => handleChange("buyButtonText", v)} />
+      <InputField id="field-buyButtonHref" label="URL Tombol Beli" value={data.buyButtonHref} onChange={(v) => handleChange("buyButtonHref", v)} />
     </div>
   );
 };

@@ -21,7 +21,7 @@ export default function TargetSegmentsSection({ data = defaultTargetSegmentsData
        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
              <h2 onClick={clickHandler('headline')} className={`text-2xl font-extrabold text-gray-900 font-red-hat-display ${editorClass}`}>{content.headline}</h2>
-             <p onClick={clickHandler('description')} className={`mt-2 text-gray-600 ${editorClass}`}>{content.description}</p>
+             <div onClick={clickHandler('description')} className={`mt-2 text-gray-600 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5 ${editorClass}`} dangerouslySetInnerHTML={{ __html: content.description }} />
           </div>
           <div onClick={clickHandler('segments')} className={`flex flex-wrap justify-center gap-3 sm:gap-4 ${isEditor ? 'hover:outline hover:outline-2 hover:outline-blue-400 hover:outline-dashed hover:cursor-pointer p-2 rounded-3xl transition-all' : ''}`}>
               {content.segments.map((seg, i) => (

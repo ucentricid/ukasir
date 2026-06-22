@@ -67,13 +67,12 @@ export default function HeroSection({ data = defaultHeroData, isEditor = false }
                 {content.headlineBlack2}<br/>
                 <span className="ukasir-text-gradient">{content.headlineGradient}</span>
               </h1>
-              <p 
-                className={`mt-6 text-base @sm:text-xl leading-7 @sm:leading-8 text-gray-600 max-w-lg mx-auto @lg:mx-0 ${editorClass}`}
+              <div 
+                className={`mt-6 text-base @sm:text-xl leading-7 @sm:leading-8 text-gray-600 max-w-lg mx-auto @lg:mx-0 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:ml-5 [&_ol]:ml-5 ${editorClass}`}
                 onClick={clickHandler("description")}
                 title={isEditor ? "Klik untuk edit Deskripsi" : ""}
-              >
-                {content.description}
-              </p>
+                dangerouslySetInnerHTML={{ __html: content.description }}
+              />
               
               <div className="mt-5 flex justify-center @lg:justify-start">
                 <div 

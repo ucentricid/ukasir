@@ -3,7 +3,7 @@ import { Outfit, Red_Hat_Display } from "next/font/google";
 import UkasirNavbar from "@/components/ukasir/Navbar";
 import UkasirFooter from "@/components/ukasir/Footer";
 import { getContentBlock } from "@/actions/content";
-import { FooterData } from "@/components/ukasir/defaultData";
+import { FooterData, NavbarData } from "@/components/ukasir/defaultData";
 import "./globals.css";
 import "@/styles/ukasir.css";
 
@@ -80,10 +80,13 @@ export default async function RootLayout({
   const footerBlock = await getContentBlock("footer");
   const footerData = footerBlock ? (footerBlock as unknown as FooterData) : undefined;
 
+  const navbarBlock = await getContentBlock("navbar");
+  const navbarData = navbarBlock ? (navbarBlock as unknown as NavbarData) : undefined;
+
   return (
     <html lang="id" className="scroll-smooth" data-scroll-behavior="smooth">
       <body className={`${outfit.variable} ${redHatDisplay.variable} relative flex min-h-screen flex-col bg-slate-50 font-[family-name:var(--font-outfit)]`}>
-        <UkasirNavbar />
+        <UkasirNavbar data={navbarData} />
         <main className="flex-1">
           {children}
         </main>
